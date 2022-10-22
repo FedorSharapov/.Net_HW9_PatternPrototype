@@ -2,14 +2,22 @@
 {
     internal class Shoes : IMyCloneable<Shoes>
     {
-        public string BrandName { get; set; }
-        public float Size { get; set; }
-        public string Color { get; set; }
-        public decimal Price { get; set; }
+        public string BrandName { get; init; }
+        public float Size { get; init; }
+        public string Color { get; init; }
+        public decimal Price { get; init; }
+
+        public Shoes(string brandName, float size, string color, decimal price)
+        {
+            BrandName = brandName;
+            Size = size;
+            Color = color;
+            Price = price;
+        }
 
         public Shoes Copy()
         {
-            throw new NotImplementedException();
+            return new Shoes(BrandName, Size, Color, Price);
         }
     }
 }

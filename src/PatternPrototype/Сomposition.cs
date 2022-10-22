@@ -2,12 +2,18 @@
 {
     internal class Сomposition : IMyCloneable<Сomposition>
     {
-        public string TopMaterial { get; set; }
-        public string OutsoleMaterial { get; set; }
+        public string TopMaterial { get; init; }
+        public string OutsoleMaterial { get; init; }
+
+        public Сomposition(string topMaterial, string outsoleMaterial)
+        {
+            TopMaterial = topMaterial;
+            OutsoleMaterial = outsoleMaterial;
+        }
 
         public Сomposition Copy()
         {
-            throw new NotImplementedException();
+            return new Сomposition(TopMaterial, OutsoleMaterial);
         }
     }
 }
