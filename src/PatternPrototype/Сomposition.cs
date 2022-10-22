@@ -1,8 +1,17 @@
 ﻿namespace PatternPrototype
 {
-    internal class Сomposition : IMyCloneable<Сomposition>
+    /// <summary>
+    /// Состав обуви
+    /// </summary>
+    public class Сomposition : IMyCloneable<Сomposition>
     {
+        /// <summary>
+        /// Материал верхней части обуви
+        /// </summary>
         public string TopMaterial { get; init; }
+        /// <summary>
+        /// Материал подошвы
+        /// </summary>
         public string OutsoleMaterial { get; init; }
 
         public Сomposition(string topMaterial, string outsoleMaterial)

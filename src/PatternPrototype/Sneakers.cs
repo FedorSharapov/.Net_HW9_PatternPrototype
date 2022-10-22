@@ -1,21 +1,75 @@
 ﻿namespace PatternPrototype
 {
-    internal class Sneakers : SportShoes, IMyCloneable<Sneakers>
+    /// <summary>
+    /// Кроссовки
+    /// </summary>
+    public class Sneakers : SportShoes, IMyCloneable<Sneakers>
     {
-        public string WorkoutType { get; init; }
-        public string ModelName { get; init; }
-        public Сomposition Сomposition { get; init; }
+        private string _workoutType;
 
-        public Sneakers(string workoutType, string modelName, Сomposition composition, string sportType, string features, string brandName, float size, string color, decimal price) : base( sportType, features, brandName, size, color, price)
+        /// <summary>
+        /// Тип тренировки
+        /// </summary>
+        public string WorkoutType => _workoutType;
+
+        /// <summary>
+        /// Установить тип тренировки
+        /// </summary>
+        /// <param name="workoutType">Тип тренировки</param>
+        /// <returns>this Sneakers</returns>
+        public Sneakers SetWorkoutType(string workoutType)
         {
-            WorkoutType = workoutType;
-            ModelName = modelName;
-            Сomposition = composition;
+            _workoutType = workoutType;
+            return this;
+        }
+        /// <summary>
+        /// Установить вид спорта
+        /// </summary>
+        /// <param name="sportType">Вид спорта</param>
+        /// <returns>this Sneakers</returns>
+        public new Sneakers SetSportType(string sportType)
+        {
+            base.SetSportType(sportType);
+            return this;
         }
 
-        public Sneakers Copy()
+        /// <summary>
+        /// Установиь особенности обуви
+        /// </summary>
+        /// <param name="features">Особенности обуви</param>
+        /// <returns>this Sneakers</returns>
+        public new Sneakers SetFeatures(string features)
         {
-            return new Sneakers(WorkoutType, ModelName, Сomposition.Copy(), SportType, Features, BrandName, Size, Color, Price);
+            base.SetFeatures(features);
+            return this;
+        }
+
+        /// <summary>
+        /// Установить цену
+        /// </summary>
+        /// <param name="price">цена</param>
+        /// <returns>this Sneakers</returns>
+        public new Sneakers SetPrice(uint price)
+        {
+            base.SetPrice(price);
+            return this;
+        }
+
+        public Sneakers(string brandName, string modelName, float size, Сomposition composition, string color)
+            : base(brandName, modelName, size, composition, color)
+        {
+            _workoutType = "";
+        }
+
+        public new Sneakers Copy()
+        {
+            var replica = new Sneakers(BrandName, ModelName, Size, Composition, Color)
+                .SetPrice(Price)
+                .SetFeatures(Features)
+                .SetSportType(SportType)
+                .SetWorkoutType(_workoutType);
+
+            return replica;
         }
     }
 }

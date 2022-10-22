@@ -1,19 +1,71 @@
 ﻿namespace PatternPrototype
 {
-    internal class SportShoes : Shoes, IMyCloneable<SportShoes>
+    /// <summary>
+    /// Спортивная обувь
+    /// </summary>
+    public class SportShoes : Shoes, IMyCloneable<SportShoes>
     {
-        public string SportType { get; init; }
-        public string Features { get; init; }
+        private string _sportType;
+        private string _features;
 
-        public SportShoes(string sportType, string features, string brandName, float size, string color, decimal price) : base(brandName, size, color, price)
+        /// <summary>
+        /// Вид спорта
+        /// </summary>
+        public string SportType => _sportType;
+
+        /// <summary>
+        /// Особенности обуви
+        /// </summary>
+        public string Features => _features;
+
+        /// <summary>
+        /// Установить вид спорта
+        /// </summary>
+        /// <param name="sportType">Вид спорта</param>
+        /// <returns>this SportShoes</returns>
+        public SportShoes SetSportType(string sportType)
         {
-            SportType = sportType;
-            Features = features;
+            _sportType = sportType;
+            return this;
         }
 
-        public SportShoes Copy()
+        /// <summary>
+        /// Установиь особенности обуви
+        /// </summary>
+        /// <param name="features">Особенности обуви</param>
+        /// <returns>this SportShoes</returns>
+        public SportShoes SetFeatures(string features)
         {
-            return new SportShoes(SportType, Features, BrandName, Size, Color, Price);
+            _features = features;
+            return this;
+        }
+
+        /// <summary>
+        /// Установить цену
+        /// </summary>
+        /// <param name="price">цена</param>
+        /// <returns>this SportShoes</returns>
+        public new SportShoes SetPrice(uint price)
+        {
+            base.SetPrice(price);
+            return this;
+        }
+
+        public SportShoes(string brandName, string modelName, float size, Сomposition composition, string color) 
+            : base(brandName, modelName, size, composition, color) 
+        {
+            _sportType = "";
+            _features = "";
+        }
+
+        public new SportShoes Copy()
+        {
+            var replica = new SportShoes(BrandName, ModelName, Size, Composition, Color)
+                .SetPrice(Price)
+                .SetFeatures(_features)
+                .SetSportType(_sportType);
+
+            return replica;
         }
     }
 }
