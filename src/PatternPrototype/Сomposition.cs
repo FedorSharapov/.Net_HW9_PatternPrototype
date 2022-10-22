@@ -3,7 +3,7 @@
     /// <summary>
     /// Состав обуви
     /// </summary>
-    public class Сomposition : IMyCloneable<Сomposition>
+    public class Сomposition : IMyCloneable<Сomposition>, ICloneable
     {
         /// <summary>
         /// Материал верхней части обуви
@@ -23,6 +23,11 @@
         public Сomposition Copy()
         {
             return new Сomposition(TopMaterial, OutsoleMaterial);
+        }
+
+        public object Clone()
+        {
+            return Copy();
         }
     }
 }

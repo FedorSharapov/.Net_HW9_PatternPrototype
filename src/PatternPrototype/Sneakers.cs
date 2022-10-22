@@ -3,7 +3,7 @@
     /// <summary>
     /// Кроссовки
     /// </summary>
-    public class Sneakers : SportShoes, IMyCloneable<Sneakers>
+    public class Sneakers : SportShoes, IMyCloneable<Sneakers>, ICloneable
     {
         private string _workoutType;
 
@@ -70,6 +70,11 @@
                 .SetWorkoutType(_workoutType);
 
             return replica;
+        }
+
+        public new object Clone()
+        {
+            return Copy();
         }
     }
 }

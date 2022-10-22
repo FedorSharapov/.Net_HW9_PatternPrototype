@@ -3,7 +3,7 @@
     /// <summary>
     /// Спортивная обувь
     /// </summary>
-    public class SportShoes : Shoes, IMyCloneable<SportShoes>
+    public class SportShoes : Shoes, IMyCloneable<SportShoes>, ICloneable
     {
         private string _sportType;
         private string _features;
@@ -66,6 +66,11 @@
                 .SetSportType(_sportType);
 
             return replica;
+        }
+
+        public new object Clone()
+        {
+            return Copy();
         }
     }
 }

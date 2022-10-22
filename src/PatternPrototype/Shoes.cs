@@ -3,7 +3,7 @@
     /// <summary>
     /// Обувь
     /// </summary>
-    public class Shoes : IMyCloneable<Shoes>
+    public class Shoes : IMyCloneable<Shoes>, ICloneable
     {
         private uint _price;
 
@@ -63,6 +63,11 @@
                 .SetPrice(_price);
 
             return replica;
+        }
+
+        public object Clone()
+        {
+            return Copy();
         }
     }
 }
