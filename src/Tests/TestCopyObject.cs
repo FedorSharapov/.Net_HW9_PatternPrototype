@@ -15,8 +15,8 @@ namespace Tests
                 composition: new Сomposition("Текстиль, искусственная кожа", "Резина, пластик"),
                 color: "Черный"
             )
-            .SetSportType("Бег")
             .SetFeatures("Защита от влаги")
+            .SetSportType("Бег")
             .SetWorkoutType("Комфортный бег")
             .SetPrice(6999);
         }
@@ -25,7 +25,7 @@ namespace Tests
         public void Test_AllPropertiesAreEquel()
         {
             var sneakers = GetTestData();
-            var replica = sneakers.Copy();
+            var replica = (Sneakers)sneakers.Clone();
 
             Assert.Equal(sneakers.BrandName, replica.BrandName);
             Assert.Equal(sneakers.ModelName, replica.ModelName);
