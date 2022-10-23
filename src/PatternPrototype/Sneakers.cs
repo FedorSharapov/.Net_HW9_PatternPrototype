@@ -61,7 +61,7 @@
             _workoutType = "";
         }
 
-        public new Sneakers Copy()
+        public override Sneakers FullCopy()
         {
             var replica = new Sneakers(BrandName, ModelName, Size, Composition, Color)
                 .SetPrice(Price)
@@ -72,9 +72,9 @@
             return replica;
         }
 
-        public new object Clone()
+        /*public new object Clone()
         {
             return Copy();
-        }
+        }*/
     }
 }

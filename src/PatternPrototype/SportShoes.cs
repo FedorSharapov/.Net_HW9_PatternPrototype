@@ -58,7 +58,7 @@
             _features = "";
         }
 
-        public new SportShoes Copy()
+        public override SportShoes FullCopy()
         {
             var replica = new SportShoes(BrandName, ModelName, Size, Composition, Color)
                 .SetPrice(Price)
@@ -68,9 +68,9 @@
             return replica;
         }
 
-        public new object Clone()
+        /*public new object Clone()
         {
             return Copy();
-        }
+        }*/
     }
 }

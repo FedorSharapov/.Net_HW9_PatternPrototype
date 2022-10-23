@@ -20,14 +20,14 @@
             OutsoleMaterial = outsoleMaterial;
         }
 
-        public Сomposition Copy()
+        public Сomposition FullCopy()
         {
             return new Сomposition(TopMaterial, OutsoleMaterial);
         }
 
         public object Clone()
         {
-            return Copy();
+            return FullCopy();
         }
     }
 }

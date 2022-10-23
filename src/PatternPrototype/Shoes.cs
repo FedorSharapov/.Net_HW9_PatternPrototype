@@ -57,7 +57,7 @@
             Color = color;
         }
 
-        public Shoes Copy()
+        public virtual Shoes FullCopy()
         {
             var replica = new Shoes(BrandName, ModelName, Size, Composition, Color)
                 .SetPrice(_price);
@@ -67,7 +67,7 @@
 
         public object Clone()
         {
-            return Copy();
+            return FullCopy();
         }
     }
 }

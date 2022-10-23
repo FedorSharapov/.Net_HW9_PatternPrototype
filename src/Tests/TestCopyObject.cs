@@ -43,7 +43,7 @@ namespace Tests
         public void Test_SomePropertiesAreNotEqual()
         {
             var sneakers = GetTestData();
-            var replica = sneakers.Copy();
+            var replica = sneakers.FullCopy();
 
             sneakers.SetPrice(7000)
                 .SetWorkoutType("Скоростной бег");
